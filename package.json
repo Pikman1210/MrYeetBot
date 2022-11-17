@@ -1,0 +1,27 @@
+{
+  "name": "mryeetrewrite",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx nodemon index",
+    "start:dev": "npx nodemon index",
+    "load_commands": "node deploy-commands.js",
+    "load_commands:dev": "node deploy-commands-dev.js",
+    "load_commands:global": "node deploy-commands-global.js",
+    "delete_commands": "node delete-guild-commands.js",
+    "delete_commands:specific": "node delete-specific-command.js",
+    "delete_commands:global": "node delete-all-commands.js"
+  },
+  "author": "Pikman",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.6.0",
+    "dotenv": "^16.0.3",
+    "mongoose": "^6.7.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "nodemon": "^2.0.20"
+  }
+}
