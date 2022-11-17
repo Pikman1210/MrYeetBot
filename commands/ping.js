@@ -1,5 +1,3 @@
-/* eslint-disable brace-style */
-// import { SlashCommandBuilder } from "discord.js";
 const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
@@ -15,6 +13,5 @@ module.exports = {
 			console.log('Error executing ping');
 			console.error(error);
 		}
-		// await interaction.reply('pong');
 	},
 };
