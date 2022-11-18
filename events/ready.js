@@ -9,7 +9,7 @@ module.exports = {
 		console.log(`Bot successfully connected, logged in as ${client.user.tag}, member of ${servers} servers`);
 		setInterval(() => {
 			const statuses = [
-				'for new / commands',
+				'for new (/) commands',
 				`${servers} servers`,
 				'for commands!',
 			];
@@ -29,7 +29,7 @@ module.exports = {
 		} catch (error) {
 			console.error(`Error connecting to mongodb. \n ${error}`);
 			await client.destroy();
-			process.kill();
+			process.exit();
 		}
 		
 		// await wait(1000);
