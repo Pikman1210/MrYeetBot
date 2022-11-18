@@ -29,7 +29,7 @@ module.exports = {
 		} catch (error) {
 			console.error(`Error connecting to mongodb. \n ${error}`);
 			await client.destroy();
-			process.kill();
+			process.exit();
 		}
 		
 		// await wait(1000);
