@@ -5,7 +5,7 @@ const messageCountSchema = require('../storages/message-count-schema');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('messages')
-		.setDescription("Tells how many messages you've sent (in servers Mr Yeet is in) -dev")
+		.setDescription("Tells how many messages you've sent (in servers Mr Yeet is in)")
         .addUserOption(option =>
 			option.setName('user')
 				.setDescription('Who to call stupid')
