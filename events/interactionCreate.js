@@ -17,12 +17,6 @@ module.exports = {
 		
 		try {
 			await command.execute(interaction);
-
-			/*
-			// _id sets document id (basically its name under a schema)
-			const commandAmount = await commandCountSchema.find({
-                _id: interaction.user.id
-            }); */
 		} catch (error) {
 			console.error(`Error executing ${interaction.commandName}`);
 			console.error(error);
