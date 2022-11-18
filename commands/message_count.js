@@ -7,14 +7,18 @@ module.exports = {
 		.setName('messages')
 		.setDescription("Tells how many messages you've sent (in servers Mr Yeet is in) -dev"),
 	async execute(interaction) {
+        const username = interaction.user.id
         try {
-            const messageAmount = await messageCountSchema.find({
-                _id: interaction.user.id
-            });
+            const messageAmountObject = await messageCountSchema.findById({_id: username})
+            let messageAmountInteger = messageAmountObject.messageCount;
+            let messageAmount = messageAmountInteger.toString();
 
+            if (messageAmount === 'null' || messageAmount === 0 || messageAmount === '0' || messageAmount === 'undefined') {
+                interaction.reply('You\'ve sent no messages in servers I am in, better get chatting!');
+                return;
+            }
 
-		    interaction.reply(`${messageAmount}`);
-            console.log(messageAmount)
+		    interaction.reply(`You have sent **${messageAmount} messages** in servers I am in!`);
         } catch(error) {
             console.error(`Error in message-count ${error}`);
             interaction.reply(`An error occured in command messages: ${error}`);
