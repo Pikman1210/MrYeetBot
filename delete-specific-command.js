@@ -5,7 +5,7 @@ const CLIENT_ID = process.env.CLIENT_ID;
 const GUILD_ID = process.env.GUILD_ID;
 
 // ID of command to delete
-const command_id = '1042556227495927841';
+const command_id = '1042969342964416523';
 
 const rest = new REST({ version: '10' }).setToken(TOKEN);
 
