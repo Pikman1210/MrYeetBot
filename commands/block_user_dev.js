@@ -28,9 +28,6 @@ module.exports = {
                 }, {
                     _id: blockTarget,
                     $set: {
-                        blocked: true,
-                    },
-                    $set: {
                         reason: blockReason,
                     }
                 }, {
