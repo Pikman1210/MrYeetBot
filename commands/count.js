@@ -26,8 +26,8 @@ module.exports = {
 			interaction.reply(`This command has been run **${currentNumber} times!**`);
 		} catch (error) {
 
-			console.error(`Error in message-count ${error}`);
-            interaction.reply(`An error occured in command messages: ${error}`);
+			console.error(`Error in count ${error}`);
+            interaction.reply(`An error occured in command count: ${error}`);
 		}
 		
 	},
