@@ -5,10 +5,6 @@ const blockedUsersSchema = new Schema({
         type: String,
         required: true
     },
-    displayName: {
-        type: String,
-        required: true
-    },
     reason: {
         type: String,
         required: true
