@@ -8,6 +8,12 @@ const blockedUsersSchema = new Schema({
     reason: {
         type: String,
         required: true
+    },
+    warned: {
+        type: String
+    },
+    blocked: {
+        type: String
     }
 });
 
