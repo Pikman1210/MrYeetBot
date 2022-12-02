@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const blockedUsersSchema = require('../storages/blocked-users-schema.js');
-const clean = require('../storages/clean_function.js');
+const clean = require('../storages/functions/clean_function.js');
 require('dotenv/config');
 
 const Owner_Id = process.env.OWNER_ID;
