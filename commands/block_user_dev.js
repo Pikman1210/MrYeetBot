@@ -5,18 +5,18 @@ require('dotenv/config');
 const Owner_Id = process.env.OWNER_ID;
 
 module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('block_user')
-		.setDescription('Blocks someone from using the bot (use Id) -dev')
+    data: new SlashCommandBuilder()
+        .setName('block_user')
+        .setDescription('Blocks someone from using the bot (use Id) -dev')
         .addStringOption(option =>
-			option.setName('user_id')
-				.setDescription('The input to respond back with')
+            option.setName('user_id')
+                .setDescription('The input to respond back with')
                 .setRequired(true))
         .addStringOption(option =>
-			option.setName('reason')
-				.setDescription('Reason for block')
+            option.setName('reason')
+                .setDescription('Reason for block')
                 .setRequired(true)),
-	async execute(interaction) {
+    async execute(interaction) {
         const userId = interaction.user.id
         const blockTarget = interaction.options.getString('user_id');
         const blockReason = interaction.options.getString('reason');
@@ -43,6 +43,6 @@ module.exports = {
         } else {
             interaction.reply({ content: 'This is a **dev-only command** please do not try to use it.', ephemeral: true });
         }
-        
-	},
+
+    },
 };

@@ -13,12 +13,12 @@ module.exports = {
 				`${servers} servers`,
 				'for commands!',
 			];
-	
+
 			const status = statuses[Math.floor(Math.random() * statuses.length)];
 			client.user.setPresence({
 				activities: [{ name: status, type: ActivityType.Watching }],
 				// status: 'beans',
-			  });
+			});
 			// client.user.setActivity(status, { type: 'WATCHING' }).catch(console.error);
 		}, 60000);
 
@@ -31,7 +31,7 @@ module.exports = {
 			await client.destroy();
 			process.exit();
 		}
-		
+
 		// await wait(1000);
 		console.log('Successfully connected to MongoDB');
 	},

@@ -10,16 +10,16 @@ require('dotenv/config');
 const TOKEN = process.env.MR_YEET_TOKEN;
 
 const client = new Client({
-    intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent,
-    ],
-    partials: [
-        Partials.Message,
-        Partials.Channel,
-        Partials.Reaction,
-    ],
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.MessageContent,
+	],
+	partials: [
+		Partials.Message,
+		Partials.Channel,
+		Partials.Reaction,
+	],
 });
 
 // Dev logging
