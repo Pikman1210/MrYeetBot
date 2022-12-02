@@ -17,9 +17,7 @@ module.exports = {
 			const status = statuses[Math.floor(Math.random() * statuses.length)];
 			client.user.setPresence({
 				activities: [{ name: status, type: ActivityType.Watching }],
-				// status: 'beans',
 			});
-			// client.user.setActivity(status, { type: 'WATCHING' }).catch(console.error);
 		}, 60000);
 
 		try {
