@@ -29,12 +29,13 @@ module.exports = {
                     _id: blockTarget,
                     $set: {
                         reason: blockReason,
+                        blocked: 'true',
                     }
                 }, {
                     // creates in database, if it exists updates it
                     upsert: true
                 });
-                interaction.reply(`**${blockTargetName}** has been blocked from using the bot for reason: **${blockReason}**`);
+                interaction.reply(`**${blockTarget}** has been blocked from using the bot for reason: **${blockReason}**`);
             } catch (error) {
                 console.error(`Error in block_user_dev.js ${error}`);
                 interaction.reply(`An error occured in file block_user_dev.js:\n${error}`);
