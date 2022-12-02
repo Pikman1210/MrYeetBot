@@ -16,7 +16,7 @@ module.exports = {
         .addBooleanOption(option =>
             option.setName('ephemeral')
                 .setDescription('Ephemeral or not')),
-    async execute(interaction, client) {
+    async execute(interaction) {
         try {
             const userId = interaction.user.id
             const code = interaction.options.getString('eval');
