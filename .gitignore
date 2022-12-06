@@ -1,2 +1,4 @@
 node_modules
 .env
+delete-specific-command.js
+deploy-commands-dev.js
