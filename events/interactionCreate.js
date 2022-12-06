@@ -1,5 +1,6 @@
 /* eslint-disable brace-style */
 const { Events } = require('discord.js');
+const chalk = require('chalk');
 const blockedUsersSchema = require('../storages/blocked-users-schema.js');
 require('dotenv/config');
 
@@ -24,8 +25,7 @@ module.exports = {
 			try {
 				await command.execute(interaction);
 			} catch (error) {
-				console.error(`Error executing ${interaction.commandName}`);
-				console.error(error);
+				console.error(chalk.redBright('EVENT ERROR: INTERACTION_CREATE'), error);
 			}
 		} else {
 			if (blockedUsersObject === null) {
@@ -34,7 +34,7 @@ module.exports = {
 				const command = interaction.client.commands.get(interaction.commandName);
 
 				if (!command) {
-					console.error(`No command matching ${interaction.commandName} was found.`);
+					console.error(chalk.red(`No command matching ${interaction.commandName} was found.`));
 					interaction.reply(`No command matching **${interaction.commandName}** was found.`);
 					return;
 				}
@@ -42,8 +42,7 @@ module.exports = {
 				try {
 					await command.execute(interaction);
 				} catch (error) {
-					console.error(`Error executing ${interaction.commandName}`);
-					console.error(error);
+					console.error(chalk.redBright(`COMMAND EXECUTE ERROR: ${interaction.commandName}`), error);
 				}
 			} else {
 				let userBlocked = blockedUsersObject.blocked;
@@ -65,8 +64,7 @@ module.exports = {
 					try {
 						await command.execute(interaction);
 					} catch (error) {
-						console.error(`Error executing ${interaction.commandName}`);
-						console.error(error);
+						console.error(chalk.redBright(`COMMAND EXECUTE ERROR: ${interaction.commandName}`), error);
 					}
 				}
 			}

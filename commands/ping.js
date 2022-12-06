@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
+const chalk = require('chalk');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -10,8 +11,7 @@ module.exports = {
 			interaction.editReply(`🏓 Pong! \nLatency is ${sent.createdTimestamp - interaction.createdTimestamp}ms. \nAPI Latency is ${Math.round(interaction.client.ws.ping)}ms`);
 		} catch (error) {
 			await interaction.reply(`Error executing command: ${error}`);
-			console.log('Error executing ping');
-			console.error(error);
+			console.error(chalk.redBright('COMMAND ERROR: PING'), error);
 		}
 	},
 };

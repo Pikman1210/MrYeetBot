@@ -1,4 +1,5 @@
 const { Events, ActivityType } = require('discord.js');
+const chalk = require('chalk');
 const mongoose = require('mongoose');
 
 module.exports = {
@@ -25,7 +26,7 @@ module.exports = {
 				keepAlive: true
 			});
 		} catch (error) {
-			console.error(`Error connecting to mongodb. \n ${error}`);
+			console.error(chalk.redBright('MONGODB CONNECTION ERROR: '), error);
 			await client.destroy();
 			process.exit();
 		}

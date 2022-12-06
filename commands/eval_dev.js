@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
+const chalk = require('chalk');
 const blockedUsersSchema = require('../storages/blocked-users-schema.js');
 const clean = require('../storages/functions/clean_function.js');
 require('dotenv/config');
@@ -32,7 +33,7 @@ module.exports = {
 
                         interaction.reply({ content: `\`\`\`js\n${cleaned}\n\`\`\``, ephemeral: ephemeral });
                     } catch (error) {
-                        console.error(`Error in eval.js ${error}`);
+                        console.error(chalk.redBright('COMMAND ERROR: EVAL'), error);
                         interaction.reply(`An error occured in file eval.js:\n${error}`);
                     }
                 } else {
@@ -57,7 +58,7 @@ module.exports = {
 
                         interaction.reply({ content: `\`\`\`js\n${cleaned}\n\`\`\``, ephemeral: ephemeral });
                     } catch (error) {
-                        console.error(`Error in eval.js ${error}`);
+                        console.error(chalk.redBright('COMMAND ERROR: EVAL'), error);
                         interaction.reply(`An error occured in file eval.js:\n${error}`);
                     }
                 } else {
@@ -79,7 +80,7 @@ module.exports = {
                     try {
                         interaction.reply({ content: 'Eval command not run due to Owner_Id being set as \"Warned\". Check database/command code immediately.', ephemeral: ephemeral })
                     } catch (error) {
-                        console.error(`Error in eval.js ${error}`);
+                        console.error(chalk.redBright('COMMAND ERROR: EVAL'), error);
                         interaction.reply(`An error occured in file eval.js:\n${error}`);
                     }
                 } else {
@@ -137,7 +138,7 @@ module.exports = {
             } */
 
         } catch (error) {
-            console.error(`Error in eval.js ${error}`);
+            console.error(chalk.redBright('COMMAND ERROR: EVAL'), error);
             interaction.reply(`An error occured in file eval.js:\n${error}`);
         }
     },

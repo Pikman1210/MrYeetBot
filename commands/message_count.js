@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
+const chalk = require('chalk');
 const messageCountSchema = require('../storages/message-count-schema');
 // const wait = require('node:timers/promises').setTimeout;
 
@@ -44,7 +45,7 @@ module.exports = {
             }
 
         } catch (error) {
-            console.error(`Error in message-count ${error}`);
+            console.error(chalk.redBright('COMMAND ERROR: MESSAGE_COUNT'), error);
             interaction.reply(`An error occured in command messages: ${error}`);
         }
     },

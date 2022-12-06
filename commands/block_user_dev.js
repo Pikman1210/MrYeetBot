@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
+const chalk = require('chalk');
 const blockedUsersSchema = require('../storages/blocked-users-schema.js');
 require('dotenv/config');
 
@@ -37,7 +38,7 @@ module.exports = {
                 });
                 interaction.reply(`**${blockTarget}** has been blocked from using the bot for reason: **${blockReason}**`);
             } catch (error) {
-                console.error(`Error in block_user_dev.js ${error}`);
+                console.error(chalk.redBright('COMMAND ERROR: BLOCK_USER'), error);
                 interaction.reply(`An error occured in file block_user_dev.js:\n${error}`);
             }
         } else {

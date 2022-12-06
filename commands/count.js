@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
+const chalk = require('chalk');
 const countCommandSchema = require('../storages/count-command-schema.js');
 
 module.exports = {
@@ -25,8 +26,7 @@ module.exports = {
 	
 			interaction.reply(`This command has been run **${currentNumber} times!**`);
 		} catch (error) {
-
-			console.error(`Error in count ${error}`);
+			console.error(chalk.redBright('COMMAND ERROR: COUNT'), error);
             interaction.reply(`An error occured in command count: ${error}`);
 		}
 		
