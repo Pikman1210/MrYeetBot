@@ -1,4 +1,5 @@
 const { Events, ActivityType } = require('discord.js');
+const chalk = require('chalk');
 const mongoose = require('mongoose');
 
 module.exports = {
@@ -13,13 +14,11 @@ module.exports = {
 				`${servers} servers`,
 				'for commands!',
 			];
-	
+
 			const status = statuses[Math.floor(Math.random() * statuses.length)];
 			client.user.setPresence({
 				activities: [{ name: status, type: ActivityType.Watching }],
-				// status: 'beans',
-			  });
-			// client.user.setActivity(status, { type: 'WATCHING' }).catch(console.error);
+			});
 		}, 60000);
 
 		try {
@@ -27,11 +26,11 @@ module.exports = {
 				keepAlive: true
 			});
 		} catch (error) {
-			console.error(`Error connecting to mongodb. \n ${error}`);
+			console.error(chalk.redBright('MONGODB CONNECTION ERROR: '), error);
 			await client.destroy();
 			process.exit();
 		}
-		
+
 		// await wait(1000);
 		console.log('Successfully connected to MongoDB');
 	},
