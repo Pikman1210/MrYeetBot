@@ -11,7 +11,7 @@ module.exports = {
 	async execute(interaction) {
 		try {
 			// the message itself
-			message = `This command was run by ${interaction.user.username}, who joined on ${interaction.member.joinedAt}.`;
+			message = `This command was run by **${interaction.user.username}**, who joined on **${interaction.member.joinedAt}**.`;
 
 			// setting up canvas (the image)
 			const imageFile = './storages/images/nebula.jpg'
