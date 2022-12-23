@@ -12,32 +12,37 @@ module.exports = {
                 .setDescription('Who\'s avatar to send')
                 .setRequired(false)),
     async execute(interaction) {
-        const targetUser = interaction.options.getUser('user')
+        try {
+            const targetUser = interaction.options.getUser('user')
 
-        if (targetUser === undefined || targetUser === null) {
-            const canvas = Canvas.createCanvas(250, 250);
-            const context = canvas.getContext('2d');
+            if (targetUser === undefined || targetUser === null) {
+                const canvas = Canvas.createCanvas(250, 250);
+                const context = canvas.getContext('2d');
 
-            const { body } = await request(interaction.user.displayAvatarURL({ extension: 'jpg' }));
-            const avatar = await Canvas.loadImage(await body.arrayBuffer());
-            context.drawImage(avatar, 0, 0, 250, 250);
+                const { body } = await request(interaction.user.displayAvatarURL({ extension: 'jpg' }));
+                const avatar = await Canvas.loadImage(await body.arrayBuffer());
+                context.drawImage(avatar, 0, 0, 250, 250);
 
-            const attachment = new AttachmentBuilder(await canvas.encode('png', { name: 'profile-image.png' }));
+                const attachment = new AttachmentBuilder(await canvas.encode('png', { name: 'profile-image.png' }));
 
-            await interaction.reply({ content: `Here is the avatar of ${interaction.user.username}`, files: [attachment] });
-        } else {
-            const targetName = targetUser.username
+                await interaction.reply({ content: `Here is the avatar of ${interaction.user.username}`, files: [attachment] });
+            } else {
+                const targetName = targetUser.username
 
-            const canvas = Canvas.createCanvas(250, 250);
-            const context = canvas.getContext('2d');
+                const canvas = Canvas.createCanvas(250, 250);
+                const context = canvas.getContext('2d');
 
-            const { body } = await request(targetUser.displayAvatarURL({ extension: 'jpg' }));
-            const avatar = await Canvas.loadImage(await body.arrayBuffer());
-            context.drawImage(avatar, 0, 0, 250, 250);
+                const { body } = await request(targetUser.displayAvatarURL({ extension: 'jpg' }));
+                const avatar = await Canvas.loadImage(await body.arrayBuffer());
+                context.drawImage(avatar, 0, 0, 250, 250);
 
-            const attachment = new AttachmentBuilder(await canvas.encode('png', { name: 'profile-image.png' }));
+                const attachment = new AttachmentBuilder(await canvas.encode('png', { name: 'profile-image.png' }));
 
-            await interaction.reply({ content: `Here is the avatar of ${targetName}`, files: [attachment] });
+                await interaction.reply({ content: `Here is the avatar of ${targetName}`, files: [attachment] });
+            }
+        } catch (error) {
+            console.error(chalk.redBright('COMMAND ERROR: AVATAR'), error);
+			interaction.reply(`An error occured in command avatar: ${error}`);
         }
     },
 };
