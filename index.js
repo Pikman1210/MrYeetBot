@@ -21,6 +21,11 @@ const client = new Client({
 		Partials.Channel,
 		Partials.Reaction,
 	],
+	allowedMentions: {
+		parse: [
+			'users', 'roles'
+		]
+	},
 });
 
 // Dev logging

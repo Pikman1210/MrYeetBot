@@ -27,7 +27,6 @@ module.exports = {
 			});
 		} catch (error) {
 			console.error(chalk.redBright('MONGODB CONNECTION ERROR: '), error);
-			await client.destroy();
 			process.exit();
 		}
 

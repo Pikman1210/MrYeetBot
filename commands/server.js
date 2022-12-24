@@ -7,7 +7,8 @@ const applyText = require('../storages/functions/applyText_function.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('server')
-		.setDescription('Provides information about the server.'),
+		.setDescription('Provides information about the server.')
+		.setDMPermission(false),
 	async execute(interaction) {
 		try {
 			// the message itself
