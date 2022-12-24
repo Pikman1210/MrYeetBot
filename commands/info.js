@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
-let colors = [6950317, 0x0099FF ];
+let colors = [6950317, 0x0099FF, 0x42f557, 0x281be0, 0xe0d31b, 0xfc0000 ];
 
 module.exports = {
     data: new SlashCommandBuilder()
