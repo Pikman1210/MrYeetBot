@@ -14,7 +14,7 @@ module.exports = {
             await interaction.reply({ content: 'Shutting down', ephemeral: true });
 			process.exit();
         } else {
-            
+            return;
         }
 	},
 };
