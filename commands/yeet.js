@@ -2,11 +2,11 @@ const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('steak')
-		.setDescription('Steak'),
+		.setName('yeet')
+		.setDescription('The best command'),
 	async execute(interaction) {
-        const message = '***STEAK***'
-        const attachment = './storages/images/why.png'
+		const message = null
+        const attachment = './storages/images/YeetGIF.gif'
         await interaction.reply({ content: message, files: [attachment] });
 	},
 };
